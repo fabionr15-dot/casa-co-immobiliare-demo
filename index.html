@@ -3186,7 +3186,8 @@ function openPop(data){
 function closePop(){document.getElementById('ov').classList.remove('show');}
 document.addEventListener('click',e=>{const mk=e.target.closest('.mk');if(mk){const key=mk.getAttribute('data-mk');if(M[key])openPop(M[key][lang]);}});
 document.addEventListener('keydown',e=>{if(e.key==='Escape')closePop();});
-applyLang();
+(function(){try{var q=new URLSearchParams(location.search);var l=q.get('lang');if(l&&T[l])lang=l;var v=parseInt(q.get('v'),10);if(v>=1&&v<=5)variant=v;}catch(e){}})();
+setV(variant);applyLang();
 </script>
 </body>
 </html
